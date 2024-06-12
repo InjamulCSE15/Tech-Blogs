@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/*================================
+BASE
+==================================*/
+@layer base {
+    html,body {
+        font-family: "Kanit", sans-serif;
+    }
+}
+
+:root {
+    --custom-dark: #121417;
+    --custom-green: #4DC274;
+}
+/*--- Color ---*/
+.custom-dark {
+    color: var(--custom-dark);
+}
+.custom-green {
+    color: var(--custom-green);
+}
+/*--- Text Color ---*/
+.text-custom-dark {
+    color: var(--custom-dark);
+}
+.text-custom-green {
+    color: var(--custom-green);
+}
+
+/*--- Background Color ---*/
+.bg-custom-green {
+    background-color: var(--custom-green);
+}
+
+/*--- Dark Mode ---*/
+.dark-mode {
+    background-color: #121417;
+    color: white !important;
+}
+
+
+/* =========================
+Active NavItem
+============================ */
+.active {
+    color: #000 !important;
+    background-color: #CCCC !important;
+    font-weight: bold;
+}
+
+
+/* =========================
+HERO
+============================ */
+.hero-banner {
+    background-image: url('https://s3-alpha-sig.figma.com/img/a687/65a0/ad3fbf6c3405229c89a6477082f71c34?Expires=1711324800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=PwHnT4OWdcCsUA1u~H6n2rErjjV8nISq4Je8yDDvYdljhLHm9dakmAva5KuK9oYUkINR2FbsCgDubf6uHW7FtEtXKmGkzOnnuqHBL3IdBiomwc-Fqn~yhTfDkfG5ZgDC5p3nVpahkkp8tbTNNVonfThqiC2EXSzjIXMiZb43hv8V-0uGnr6kzuAi3~ECMvfZ7iBF~86kYahfebweKfcIUS~ryoXCTy3lysWV6lnGeb-3xU53VRpduDSsz3UmvFEY4DRhEcJ2PGoq1huvQoKfM5mgbQ7Dmtphh89Hq1MwGeFdEPfx7swlPio~jm~3fCZdyGA9qMCmhtDfWxj1FnpUbA__');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 630px;
+    border-radius: 2em;
+}
