@@ -1,8 +1,8 @@
 import React from 'react'
 import { FaRegBookmark } from "react-icons/fa";
 
-export default function Blog({ blog, handleMarkAsRead }) {
-    const { title, cover_img, blog_details, author, author_img, reading_time, hashtags, posted_date } = blog
+export default function Blog({ blog, handleMarkAsRead, handleAddBookmark }) {
+    const { id, title, cover_img, blog_details, author, author_img, reading_time, hashtags, posted_date } = blog
     return (
         <article className="group mb-6">
             <img
@@ -24,13 +24,13 @@ export default function Blog({ blog, handleMarkAsRead }) {
                 </div>
                 <div className="flex items-center">
                     <h5 className='text-sm text-gray-400'>{reading_time} min read</h5>
-                    <button className='ms-4'>
+                    <button className='ms-4' onClick={()=> handleAddBookmark(blog)}>
                         <FaRegBookmark />
                     </button>
                 </div>
             </div>
             <div className="p-4 border-b-2">
-                <h3 className="text-2xl font-medium text-gray-900">{title}</h3>
+                <h3 className="text-4xl font-medium text-gray-900">{title}</h3>
                 <div className='flex'>
                 {
                     hashtags.map( (ht, i) => <small key={i} className='inline-block px-2 text-gray-400'>#{ht}</small>)
