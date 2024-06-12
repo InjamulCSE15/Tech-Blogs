@@ -4,13 +4,16 @@ import Blog from "../Blog/Blog";
 
 export default function Blogs() {
     const [blogs, setBlogs] = useState([]);
-    const [readTime, setReadTime] = useState(0);
-    
+    const [totalReadTime, setTotalReadTime] = useState(0);    
     useEffect(()=>{
         fetch('../../../public/blogs.json')
         .then(res => res.json())
         .then(data => setBlogs(data))
     },[])
+
+    const handleMarkAsRead = (readingTime) => {
+        setTotalReadTime(totalReadTime + readingTime);
+    }
 
     return (
         <div className="container mx-auto mt-5">
@@ -18,13 +21,13 @@ export default function Blogs() {
                 <div className="rounded-lg lg:col-span-2">
                     <h4 className="ps-4 py-2 text-xl text-gray-600">Latest blogs: {blogs.length}</h4>
                     {
-                        blogs.map(blog=><Blog key={blog.id} blog={blog}></Blog>)
+                        blogs.map(blog=><Blog key={blog.id} blog={blog} handleMarkAsRead={handleMarkAsRead}></Blog>)
                     }
                 </div>
                 <div>
                     <div className="border border-indigo-500 text-indigo-500 text-center rounded-lg p-4 flex justify-center items-center">
                         <MdOutlineAccessTime /> 
-                        <span className="ps-1">Spent time on read : {readTime} min</span>
+                        <span className="ps-1">Spent time on read : {totalReadTime} min</span>
                     </div>
                 </div>
             </div>
