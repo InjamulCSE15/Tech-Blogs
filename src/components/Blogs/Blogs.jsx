@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
+import { MdOutlineAccessTime } from "react-icons/md";
 import Blog from "../Blog/Blog";
 
 export default function Blogs() {
     const [blogs, setBlogs] = useState([]);
+    const [readTime, setReadTime] = useState(0);
     
     useEffect(()=>{
         fetch('../../../public/blogs.json')
@@ -20,8 +22,9 @@ export default function Blogs() {
                     }
                 </div>
                 <div>
-                    <div className="border border-indigo-500 text-indigo-500 text-center rounded-lg p-4">
-                        Spent time on read : 120 min
+                    <div className="border border-indigo-500 text-indigo-500 text-center rounded-lg p-4 flex justify-center items-center">
+                        <MdOutlineAccessTime /> 
+                        <span className="ps-1">Spent time on read : {readTime} min</span>
                     </div>
                 </div>
             </div>
