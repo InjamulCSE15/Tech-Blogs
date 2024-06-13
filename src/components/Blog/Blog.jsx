@@ -1,8 +1,9 @@
-import React from 'react'
+import {useState} from 'react'
 import { FaRegBookmark } from "react-icons/fa";
 
 export default function Blog({ blog, handleMarkAsRead, handleAddBookmark }) {
-    const { id, title, cover_img, blog_details, author, author_img, reading_time, hashtags, posted_date } = blog
+    const { id, title, cover_img, blog_details, isRead, author, author_img, reading_time, hashtags, posted_date } = blog
+    
     return (
         <article className="group mb-6">
             <img
@@ -36,7 +37,7 @@ export default function Blog({ blog, handleMarkAsRead, handleAddBookmark }) {
                     hashtags.map( (ht, i) => <small key={i} className='inline-block px-2 text-gray-400'>#{ht}</small>)
                 }
                 </div>
-                <button onClick={()=> handleMarkAsRead(reading_time)} className='text-indigo-600 bg-indigo-100 px-2 border border-indigo-200 rounded-md hover:bg-indigo-200 mt-1'>Mark as read</button>
+                <button onClick={()=> handleMarkAsRead(id)} className='text-indigo-600 bg-indigo-100 px-2 border border-indigo-200 rounded-md hover:bg-indigo-200 mt-1'>{isRead ? 'Marked as unread    ' : 'Mark as read'}</button>
                 <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-600">{blog_details}</p>
             </div>
         </article>
