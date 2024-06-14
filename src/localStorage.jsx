@@ -1,27 +1,27 @@
 // Store in local storage
-const storeCart = cart => {
-    const stringifyCart = JSON.stringify(cart);
-    localStorage.setItem('cart', stringifyCart); 
+const storeMarkedBooked = markedBooked => {
+    const stringifyMarkedBooked = JSON.stringify(markedBooked);
+    localStorage.setItem('markedBooked', stringifyMarkedBooked); 
 }
 
 const addToStorage = id =>{
-    const cartItem = getCart();
-    cartItem.push(id);
-    storeCart(cartItem);
+    const markedBookedItem = getMarkedBooked();
+    markedBookedItem.push(id);
+    storeMarkedBooked(markedBookedItem);
 }
 
 const removeFromStorage = id => {
-    const cartItem = getCart();
-    const remainItem = cartItem.filter( ids => ids !== id);
-    storeCart(remainItem);
+    const markedBookedItem = getMarkedBooked();
+    const remainItem = markedBookedItem.filter( ids => ids !== id);
+    storeMarkedBooked(remainItem);
 }
 
-const getCart = () => {
-    const getCartItems = localStorage.getItem('cart');
-    if (getCartItems) {
-        return  JSON.parse(getCartItems); 
+const getMarkedBooked = () => {
+    const getMarkedBookedItems = localStorage.getItem('markedBooked');
+    if (getMarkedBookedItems) {
+        return  JSON.parse(getMarkedBookedItems); 
     } 
     return [];
 }
 
-export {addToStorage, removeFromStorage,getCart}
+export {addToStorage, removeFromStorage,getMarkedBooked}
