@@ -9,13 +9,6 @@ const addToStorage = id =>{
     markedBookedItem.push(id);
     storeMarkedBooked(markedBookedItem);
 }
-
-const removeFromStorage = id => {
-    const markedBookedItem = getMarkedBooked();
-    const remainItem = markedBookedItem.filter( ids => ids !== id);
-    storeMarkedBooked(remainItem);
-}
-
 const getMarkedBooked = () => {
     const getMarkedBookedItems = localStorage.getItem('markedBooked');
     if (getMarkedBookedItems) {
@@ -24,4 +17,4 @@ const getMarkedBooked = () => {
     return [];
 }
 
-export {addToStorage, removeFromStorage,getMarkedBooked}
+export {addToStorage, getMarkedBooked}

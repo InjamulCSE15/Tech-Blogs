@@ -57,7 +57,7 @@ export default function Blogs() {
             toast.error('This blog is already bookmarked.'); // Informative message
         } else {
             setBookmarkedBlogs([...bookmarkedBlogs, blog]);
-            addToStorage(blog.id)
+            addToStorage(blog.id``)
             toast.success('Blog has been bookmarked!');
         }
     }   
